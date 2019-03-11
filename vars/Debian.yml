@@ -7,3 +7,5 @@ __clamav_packages:
   - clamav
   - clamav-base
   - clamav-daemon
+apparmor_utils_package:
+  - apparmor-utils

@@ -4,3 +4,6 @@
     name: "{{ clamav_daemon }}"
     state: restarted
   when: clamav_daemon_state != 'stopped'
+
+- name: reboot the machine
+  reboot:
