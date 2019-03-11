@@ -1,0 +1,12 @@
+# {{ ansible_managed }}
+#
+
+/var/log/clamav/clamav-*.log {
+    daily
+    missingok
+    rotate 14
+    compress
+    delaycompress
+    notifempty
+    create 600 root root
+}

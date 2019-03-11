@@ -53,6 +53,22 @@
     state: "{{ clamav_daemon_state }}"
     enabled: "{{ clamav_daemon_enabled }}"
 
+- name: Create cronscan script.
+  template:
+    src: etc/cron/clamav-scan.j2
+    dest: /etc/cron.daily/clamav-scan
+    owner: root
+    group: root
+    mode: 0755
+
+- name: Create logrotate clamav file.
+  template:
+    src: etc/logrotate/clamav.j2
+    dest: /etc/logrotate.d/clamav
+    owner: root
+    group: root
+    mode: 0644
+
 - name: Ensure ClamAV freshclam daemon is NOT running (if configured).
   service:
     name: "{{ clamav_freshclam_daemon }}"
